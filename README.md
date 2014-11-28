@@ -157,3 +157,14 @@ Build the image yourself.
 
 1. `git clone https://github.com/hopsoft/docker-graphite-statsd.git`
 1. `sudo docker build -t hopsoft/graphite-statsd ./docker-graphite-statsd`
+
+## Sending stats to carbon 
+
+```sh
+while true
+do
+  echo "local.random.diceroll.count $(((RANDOM % 10) + 1)) `date +%s`" | nc -w 1  192.168.59.103 2003 | nc -w 1 -u 192.168.59.103 2003
+done
+<CTL-C>
+```
+
