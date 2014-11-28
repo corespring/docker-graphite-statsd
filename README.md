@@ -12,6 +12,7 @@ sudo docker run -d \
   --name graphite \
   -p 80:80 \
   -p 2003:2003 \
+  -p 2013:2023 \
   -p 8125:8125/udp \
   hopsoft/graphite-statsd
 ```
@@ -29,11 +30,12 @@ That's it, you're done ... almost.
 
 ### Mapped Ports
 
-| Host | Container | Service |
-| ---- | --------- | ------- |
-|   80 |        80 | nginx   |
-| 2003 |      2003 | carbon  |
-| 8125 |      8125 | statsd  |
+| Host | Container | Service   |
+| ---- | --------- | --------- |
+|   80 |        80 | nginx     |
+| 2003 |      2003 | carbon    |
+| 8125 |      8125 | statsd    |
+| 2013 |      2023 | aggregator|
 
 ### Mounted Volumes
 
@@ -128,6 +130,7 @@ you should consider mounting `/opt/graphite` & `/var/log` on a larger volume.
       -v /path/to/ebs/log:/var/log \
       -p 80:80 \
       -p 2003:2003 \
+      -p 2013:2023 \
       -p 8125:8125/udp \
       hopsoft/graphite-statsd
     ```
