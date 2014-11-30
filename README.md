@@ -14,7 +14,7 @@ sudo docker run -d \
   -p 2003:2003 \
   -p 2013:2023 \
   -p 8125:8125/udp \
-  hopsoft/graphite-statsd
+  corespring/graphite-statsd
 ```
 
 This starts a Docker container named: **graphite**
@@ -132,7 +132,7 @@ you should consider mounting `/opt/graphite` & `/var/log` on a larger volume.
       -p 2003:2003 \
       -p 2013:2023 \
       -p 8125:8125/udp \
-      hopsoft/graphite-statsd
+      corespring/graphite-statsd
     ```
 
 ## Additional Reading
